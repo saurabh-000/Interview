@@ -9,10 +9,14 @@ import { StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native'
 import {
   SafeAreaProvider,
 } from 'react-native-safe-area-context';
-import LargeList from './src/Screens/LargeList';
-import OfflineSupport from './src/Screens/OfflineSupport';
+import LargeList from './src/Screens/LargeListScreen';
+import OfflineSupport from './src/Screens/OfflineSupportScreen';
 import { useEffect, useState } from 'react';
 import { getAuthToken, setAuthToken } from './src/Utils/Secure';
+import RootNavigation from './src/Navigation/RootNavigation';
+import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from 'react-redux';
+import { store } from './src/Redux/store';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -45,7 +49,13 @@ function AppContent() {
         <Text>Secure Token (Keychain): {token ?? 'loading...'}</Text>
 
       </View>
-      <OfflineSupport/>
+      <Provider store={store}>
+        <NavigationContainer>
+        <RootNavigation/>
+      </NavigationContainer>
+      </Provider>
+      
+      
       {/* <LargeList/>       */}
     </View>
   );

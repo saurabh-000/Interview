@@ -13,7 +13,7 @@ function prepareData(len: number):LargeItem[] {
 
 const DATA=prepareData(5000)
 
-const LargeList=()=>{
+const LargeListScreen=()=>{
 
     const PAGE_SIZE = 20;
     const [page, setPage] = useState(1);
@@ -89,4 +89,4 @@ const loadMore = useCallback(() => {
     )
 
 }
-export default LargeList
+export default LargeListScreen

@@ -37,7 +37,7 @@ export type Response ={
 
   
 
-const OfflineSupport=()=>{
+const OfflineSupportScreen=()=>{
     const [users, setUsers] = useState<any>();
     const [loading, setLoading] = useState(false);
 
@@ -92,4 +92,4 @@ const OfflineSupport=()=>{
         
     )
 }
-export default OfflineSupport
+export default OfflineSupportScreen
