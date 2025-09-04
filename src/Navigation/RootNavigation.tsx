@@ -4,11 +4,13 @@ import HomeScreen from "../Screens/HomeScreen";
 import LargeListScreen from "../Screens/LargeListScreen";
 import ProductListScreen from "../Screens/ProductListScreen";
 import CartScreen from "../Screens/CartScreen";
+import UserDetailsScreen from "../Screens/UserDetailsScreen";
 export type RootStackParamList = {
   Home: undefined;
   LargeList: undefined;
   ProductList:undefined;
-  Cart:undefined
+  Cart:undefined;
+  UserDetails:undefined;
 };
 const Stack=createNativeStackNavigator<RootStackParamList>()
 const RootNavigation= () => {
@@ -16,7 +18,6 @@ const RootNavigation= () => {
     <Stack.Navigator>
       <Stack.Screen
         name="Home"
-        options={{ headerShown: false }}
         component={HomeScreen}
       />
 
@@ -33,6 +34,11 @@ const RootNavigation= () => {
       <Stack.Screen
         name="Cart"
         component={CartScreen}
+      />
+
+      <Stack.Screen
+        name="UserDetails"
+        component={UserDetailsScreen}
       />
     </Stack.Navigator>
   );

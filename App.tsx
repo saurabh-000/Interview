@@ -17,6 +17,7 @@ import RootNavigation from './src/Navigation/RootNavigation';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import { store } from './src/Redux/store';
+import DeepLinking from './src/Navigation/DeepLinking';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -50,7 +51,7 @@ function AppContent() {
 
       </View>
       <Provider store={store}>
-        <NavigationContainer>
+        <NavigationContainer linking={DeepLinking}>
         <RootNavigation/>
       </NavigationContainer>
       </Provider>
