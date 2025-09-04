@@ -44,15 +44,6 @@ const getItemLayout = useCallback((_: any, index: number) => ({
         length: 72, offset: 72 * index, index,
 }), []);
 
-const toggleFavorite = useCallback((id: string) => {
-    const newSet = new Set(favorites);
-      if (newSet.has(id)) {
-        newSet.delete(id);
-      } else {
-        newSet.add(id);
-      }
-    setFavorites(newSet);
-  }, [favorites]);
 
 const loadMore = useCallback(() => {
     if (loading) return;

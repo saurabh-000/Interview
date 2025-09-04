@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../Navigation/RootNavigation";
 import { addToCart } from "../Redux/store/slices/cartSlice";
+import { ProductListProps } from "../Types/Types";
 
 const mockProducts = [
   { 
@@ -36,7 +37,7 @@ const mockProducts = [
    },
 ];
 
-type ProductListProps = NativeStackScreenProps<RootStackParamList, "ProductList">;
+
 
 const ProductListScreen=({navigation}:ProductListProps)=> {
   const dispatch = useDispatch();

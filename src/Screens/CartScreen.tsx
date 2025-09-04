@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearCart, decrement, removeFromCart } from '../Redux/store/slices/cartSlice';
 import { RootState } from '../Redux/store';
 
-export default function CartScreen() {
+const CartScreen=()=> {
   const items = useSelector((s: RootState) => Object.values(s.cart.items));
   const totalCount = useMemo(() => items.reduce((a, b) => a + b.qty, 0), [items]);
   const totalAmount = useMemo(() => items.reduce((a, b) => a + b.price * b.qty, 0), [items]);
@@ -34,3 +34,4 @@ export default function CartScreen() {
     </View>
   );
 }
+export default CartScreen;

@@ -2,40 +2,7 @@ import React, { useEffect, useState } from "react"
 import { getJSON, setJSON } from "../Utils/Utils";
 import { FlatList, RefreshControl, Text, View } from "react-native";
 import NetInfo from "@react-native-community/netinfo";
-import { GETAPI } from "../API/APICall";
-export type Response ={
-    "id": number,
-    "name": string,
-    "username": string,
-    "email": string,
-    "address": Address,
-    "phone": string,
-    "website": string,
-    "company": Company
-  }
-
-  export type Geo={
-        "lat": string,
-        "lng": string
-  }
-
-  export type Address={
-      "street": string,
-      "suite": string,
-      "city": string,
-      "zipcode": string,
-      "geo": Geo
-  }
-
-  export type Company={
-    
-      "name": string,
-      "catchPhrase": string,
-      "bs": string
-    
-  }
-
-  
+import { GETAPI } from "../API/APICall";  
 
 const OfflineSupportScreen=()=>{
     const [users, setUsers] = useState<any>();

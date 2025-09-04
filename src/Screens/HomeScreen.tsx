@@ -3,7 +3,8 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react"
 import { View, Text, TouchableOpacity } from "react-native"
 import { RootStackParamList } from "../Navigation/RootNavigation";
-type HomeProps = NativeStackScreenProps<RootStackParamList, "Home">;
+import { HomeProps } from "../Types/Types";
+
 const HomeScreen=({navigation}:HomeProps)=>{
     return(
         <View>

@@ -7,7 +7,7 @@ const UserDetailsScreen=()=>{
     return(
         <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
             <Text style={{fontSize:22,fontWeight:700}}>
-                User ID;{id}
+                User ID {id}
             </Text>
         </View>
     )

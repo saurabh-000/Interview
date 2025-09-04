@@ -1,45 +1,56 @@
 import React from "react";
 import { createNativeStackNavigator, NativeStackNavigationProp } from "@react-navigation/native-stack";
-import HomeScreen from "../Screens/HomeScreen";
 import LargeListScreen from "../Screens/LargeListScreen";
 import ProductListScreen from "../Screens/ProductListScreen";
 import CartScreen from "../Screens/CartScreen";
 import UserDetailsScreen from "../Screens/UserDetailsScreen";
+import CodeReviewScreen from "../Screens/CodeReviewScreen";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 export type RootStackParamList = {
   Home: undefined;
-  LargeList: undefined;
-  ProductList:undefined;
-  Cart:undefined;
   UserDetails:undefined;
+  CodeReview:undefined;
 };
+export type TabParamList = {
+  ProductList: undefined;
+  Cart: undefined;
+  LargeList: undefined;
+};
+
+const Tab = createBottomTabNavigator<TabParamList>();
+
+const TabView=()=>{
+  return(
+    <Tab.Navigator>
+      <Tab.Screen name="ProductList" component={ProductListScreen}/>
+      <Tab.Screen name="Cart" component={CartScreen}/>
+      <Tab.Screen name="LargeList" component={LargeListScreen}/>
+
+    </Tab.Navigator>
+  )
+}
 const Stack=createNativeStackNavigator<RootStackParamList>()
 const RootNavigation= () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="Home"
-        component={HomeScreen}
-      />
-
-      <Stack.Screen
-        name="LargeList"
-        component={LargeListScreen}
-      />
-
-      <Stack.Screen
-        name="ProductList"
-        component={ProductListScreen}
-      />
-
-      <Stack.Screen
-        name="Cart"
-        component={CartScreen}
+        component={TabView}
+        options={{headerShown:false}}
       />
 
       <Stack.Screen
         name="UserDetails"
         component={UserDetailsScreen}
+        options={{headerShown:false}}
       />
+
+      <Stack.Screen
+        name="CodeReview"
+        component={CodeReviewScreen}
+        options={{headerShown:false}}
+      />
+      
     </Stack.Navigator>
   );
 };
