@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, FlatList, Button, TouchableOpacity } from "react-native";
 import { useDispatch } from "react-redux";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../Navigation/RootNavigation";
 import { addToCart } from "../Redux/store/slices/cartSlice";
 import { ProductListProps } from "../Types/Types";
+import { getOsVersion } from "../Native/DeviceInfo";
 
 const mockProducts = [
   { 
@@ -40,10 +41,29 @@ const mockProducts = [
 
 
 const ProductListScreen=({navigation}:ProductListProps)=> {
+   const [os, setOs] = React.useState('');
+
+   useEffect(()=>{
+    init();
+   },[])
+
+   const init=async()=>{
+    let res=await getOsVersion()
+    setOs(res)
+   }
+
+ useEffect(()=>{
+   getOsVersion().then(res=>{
+    console.log("res",res)
+    setOs(res)
+   })
+ },[])
+     
   const dispatch = useDispatch();
 
   return (
     <View style={{ flex: 1, padding: 16 }}>
+      <Text>OS: {os}</Text>
       <TouchableOpacity style={{padding:10,borderRadius:5,backgroundColor:'orange',marginHorizontal:5}} onPress={() => navigation.navigate("Cart")} >
         <Text>Go to cart</Text>
       </TouchableOpacity>
